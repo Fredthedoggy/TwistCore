@@ -85,13 +85,6 @@ public class RemoteModule {
     }
 
     public final PluginDescriptionFile getDescription() {
-        PluginDescriptionFile description = null;
-        try {
-            Method getDescription = moduleClass.getMethod("getDescription");
-            description = (PluginDescriptionFile) getDescription.invoke(module);
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
-        }
-        return description;
+        return module.getDescription();
     }
 }
